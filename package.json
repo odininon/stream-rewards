@@ -11,6 +11,8 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "electron-is-dev": "^1.1.0",
+    "electron-log": "^4.0.7",
+    "electron-updater": "^4.2.4",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
@@ -27,7 +29,7 @@
     "preelectron-pack": "yarn build",
     "prerelease": "yarn build",
     "electron-pack": "electron-builder --dir",
-    "release": "electron-builder"
+    "release": "electron-builder -c.snap.publish=github"
   },
   "homepage": "./",
   "eslintConfig": {
