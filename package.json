@@ -10,17 +10,26 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "electron-is-dev": "^1.1.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
-    "typescript": "~3.7.2"
+    "typescript": "^3.8.3"
   },
+  "main": "public/electron.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "rescripts start",
+    "build": "rescripts build",
+    "test": "rescripts test",
+    "eject": "react-scripts eject",
+    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "postinstall": "electron-builder install-app-deps",
+    "preelectron-pack": "yarn build",
+    "prerelease": "yarn build",
+    "electron-pack": "electron-builder --dir",
+    "release": "electron-builder"
   },
+  "homepage": "./",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -35,5 +44,34 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@rescripts/cli": "^0.0.13",
+    "@rescripts/rescript-env": "^0.0.11",
+    "concurrently": "^5.1.0",
+    "electron": "^8.1.0",
+    "electron-builder": "^22.4.0",
+    "prettier": "^1.19.1",
+    "wait-on": "^4.0.1"
+  },
+  "author": {
+    "name": "Michael Stengel",
+    "email": "mike.stengel@gmail.com",
+    "url": "https://aesireanempire.net"
+  },
+  "build": {
+    "appId": "net.aesireanempire.nodestreamrewards",
+    "productName": "Node Stream Rewards",
+    "copyright": "Copyright © 2020 ${author}",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
   }
 }
