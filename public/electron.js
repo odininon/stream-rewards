@@ -1,6 +1,13 @@
 const electron = require("electron");
 const log = require("electron-log");
 const { autoUpdater } = require("electron-updater");
+const { ipcMain: ipc } = require("electron-better-ipc");
+const robot = require("robotjs");
+
+ipc.answerRenderer("trigger-key", async keyCode => {
+  log(`Triggering key:${keyCode}`);
+  return robot.keyTap(keyCode);
+});
 
 autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = "info";

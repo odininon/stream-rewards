@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.9.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -10,12 +11,14 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "electron-better-ipc": "^0.8.0",
     "electron-is-dev": "^1.1.0",
     "electron-log": "^4.0.7",
     "electron-updater": "^4.2.4",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
+    "robotjs": "^0.6.0",
     "typescript": "^3.8.3"
   },
   "main": "public/electron.js",
@@ -29,7 +32,8 @@
     "preelectron-pack": "yarn build",
     "prerelease": "yarn build",
     "electron-pack": "electron-builder --dir",
-    "release": "electron-builder -c.snap.publish=github"
+    "release": "electron-builder -c.snap.publish=github",
+    "rebuild": "npm rebuild --runtime=electron --target=8.1.0 --disturl=https://atom.io/download/atom-shell --abi=76"
   },
   "homepage": "./",
   "eslintConfig": {
