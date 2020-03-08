@@ -33,6 +33,11 @@ function createWindow() {
   mainWindow.on("closed", () => (mainWindow = null));
 }
 
+function sendStatusToWindow(text) {
+  log.info(text);
+  win.webContents.send("message", text);
+}
+
 app.on("ready", createWindow);
 
 app.on("window-all-closed", () => {
