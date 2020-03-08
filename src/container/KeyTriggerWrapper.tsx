@@ -28,9 +28,6 @@ const KeyTriggerWrapper = () => {
       <TextField
         label="KeyCode"
         variant="outlined"
-        inputProps={{
-          maxLength: 1
-        }}
         value={keyCode}
         onChange={event => setKeyCode(event.target.value)}
       />
@@ -38,9 +35,6 @@ const KeyTriggerWrapper = () => {
       <TextField
         label="ResetKeyCode"
         variant="outlined"
-        inputProps={{
-          maxLength: 1
-        }}
         value={resetKeyCode}
         onChange={event => setResetKeyCode(event.target.value)}
       />

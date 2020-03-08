@@ -5,7 +5,7 @@ const { ipcMain: ipc } = require("electron-better-ipc");
 const robot = require("robotjs");
 
 ipc.answerRenderer("trigger-key", async keyCode => {
-  log(`Triggering key:${keyCode}`);
+  log.info(`Triggering key:${keyCode}`);
   return robot.keyTap(keyCode);
 });
 

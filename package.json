@@ -28,6 +28,7 @@
     "test": "rescripts test",
     "eject": "react-scripts eject",
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-dev-debug": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron --inspect=5858 .\"",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
     "prerelease": "yarn build",
